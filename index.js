@@ -7,25 +7,28 @@ function Book(title, author) {
 
 function populateBooks() {
   let bookList = document.querySelector('.book-list');
+  bookList.innerHTML = '',
 
   books.forEach(book => {
     let bookContainer = document.createElement('div');
     let bookTitle = document.createElement('p');
-    bookTitle.innerHTML = book.title
+    bookTitle.innerHTML = book.title;
     let bookAuthor = document.createElement('p');
-    bookAuthor.innerHTML = book.author
+    bookAuthor.innerHTML = book.author;
     bookContainer.append(bookTitle, bookAuthor);
     bookList.append(bookContainer);
   });
   console.log(bookList);
 }
 
-function addBook() {
+function addBook(a) {
   const title = document.getElementById('title').value;
   const author = document.getElementById('author').value;
 
   books.push(new Book(title, author));
 
   populateBooks();
+
+  a.preventDefault();
 }
 // window.addEventListener('load', populateBooks);
